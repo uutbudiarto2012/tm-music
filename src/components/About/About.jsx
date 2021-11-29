@@ -23,7 +23,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about">
+    <section id="about" className="">
       <Container>
         <Title title="About Me" />
         <Row className="about-wrapper">

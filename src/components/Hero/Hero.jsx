@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import BG from '../../assets/3.mp4';
+import BG from '../../assets/2.mp4';
 import PortfolioContext from '../../context/context';
 
 const Header = () => {

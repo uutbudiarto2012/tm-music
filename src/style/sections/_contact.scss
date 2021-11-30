@@ -19,11 +19,9 @@
     margin-top: 3.2rem;
     padding: 0 2rem;
     backface-visibility: hidden;
-
     &__text {
       margin-bottom: 2.5rem;
     }
-
     &__text,
     a {
       font-size: 2.4rem;
@@ -31,6 +29,27 @@
       // Responsive for contact text
       @include respond(phone) {
         font-size: 2rem;
+      }
+    }
+    .team-item{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+      .image-wrapper{
+        width: 150px;
+        height: 150px;
+        .img-team{
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      h3{
+        margin-top: 20px;
+        font-weight: 600;
       }
     }
   }

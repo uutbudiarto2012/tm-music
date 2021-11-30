@@ -2,9 +2,8 @@ import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-scroll';
 import PortfolioContext from '../../context/context';
-import GithubButtons from '../GithubButtons/GithubButtons';
-
 import { githubButtons } from '../../mock/data';
+import GithubButtons from '../GithubButtons/GithubButtons';
 
 const Footer = () => {
   const { footer } = useContext(PortfolioContext);
@@ -12,7 +11,7 @@ const Footer = () => {
   const { isEnabled } = githubButtons;
 
   return (
-    <footer className="footer navbar-static-bottom">
+    <section id="contact" className="footer navbar-static-bottom">
       <Container>
         <span className="back-to-top">
           <Link to="hero" smooth duration={1000}>
@@ -46,7 +45,7 @@ const Footer = () => {
 
         {isEnabled && <GithubButtons />}
       </Container>
-    </footer>
+    </section>
   );
 };
 

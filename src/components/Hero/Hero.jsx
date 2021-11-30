@@ -1,13 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import { Link } from 'react-scroll';
+import BG from '../../assets/3.mp4';
 import PortfolioContext from '../../context/context';
-import BG from '../../assets/2.mp4';
 
 const Header = () => {
   const { hero } = useContext(PortfolioContext);
-  const { title, name, subtitle, cta } = hero;
+  const { title, name, subtitle } = hero;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -37,10 +36,21 @@ const Header = () => {
             </Fade>
             <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1000} distance="30px">
               <p className="hero-cta">
-                <span className="cta-btn cta-btn--hero">
-                  <Link to="about" smooth duration={1000}>
+                <span className="cta-btn cta-btn--hero mr-5">
+                  {/* <Link to="about" smooth duration={1000}>
                     {cta || 'Know more'}
-                  </Link>
+                  </Link> */}
+                  <a href="http://google.com" target="_blank" rel="noopener noreferrer">
+                    Telegram
+                  </a>
+                </span>
+                <span className="cta-btn cta-btn--hero mr-5">
+                  <a href="http://google.com" target="_blank" rel="noopener noreferrer">
+                    Whitepaper
+                  </a>
+                  {/* <Link to="about" smooth duration={1000}>
+                    {cta || 'Know more'}
+                  </Link> */}
                 </span>
               </p>
             </Fade>

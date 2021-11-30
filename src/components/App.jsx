@@ -5,12 +5,12 @@ import About from './About/About';
 import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
-// import Chart from './Chart/Chart';
-// import { particleOptions } from '../assets/particles';
+import Chart from './Chart/Chart';
 
 import { PortfolioProvider } from '../context/context';
 
 import { heroData, aboutData, projectsData, contactData, footerData } from '../mock/data';
+import RoadMap from './RoadMap/RoadMap';
 
 function App() {
   const [hero, setHero] = useState({});
@@ -21,8 +21,6 @@ function App() {
 
   const particlesInit = (main) => {
     console.log(main);
-
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   };
 
   const particlesLoaded = (container) => {
@@ -80,8 +78,7 @@ function App() {
           },
           particles: {
             color: {
-              // value: "#ebebeb",
-              value: ['#fbb03b', '#ffffff'],
+              value: ['#FFF', 'red'],
             },
             links: {
               color: '#000',
@@ -133,8 +130,9 @@ function App() {
       <Hero />
       <About />
       <Projects />
+      <RoadMap />
+      <Chart />
       <Contact />
-      {/* <Chart /> */}
       <Footer />
     </PortfolioProvider>
   );

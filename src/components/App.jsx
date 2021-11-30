@@ -6,6 +6,7 @@ import Projects from './Projects/Projects';
 import Contact from './Contact/Contact';
 import Footer from './Footer/Footer';
 // import Chart from './Chart/Chart';
+// import { particleOptions } from '../assets/particles';
 
 import { PortfolioProvider } from '../context/context';
 
@@ -97,18 +98,24 @@ function App() {
               enable: true,
               outMode: 'bounce',
               random: false,
-              speed: 1,
+              speed: 0,
               straight: false,
             },
             number: {
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 500,
               },
               value: 180,
             },
             opacity: {
               value: 0.5,
+              anim: {
+                enable: true,
+                speed: 2,
+                opacity_min: 0,
+                sync: false,
+              },
             },
             shape: {
               type: 'circle',

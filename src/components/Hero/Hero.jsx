@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import BG from '../../assets/2.mp4';
+import BG from '../../assets/3.mp4';
 import PortfolioContext from '../../context/context';
 
 const Header = () => {
@@ -10,6 +10,7 @@ const Header = () => {
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     if (window.innerWidth > 769) {
@@ -21,8 +22,26 @@ const Header = () => {
     }
   }, []);
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollPosition]);
+
   return (
     <section id="hero" className="jumbotron">
+      <div className={`videoWrapper ${scrollPosition > 200 ? 'onRun' : ''}`}>
+        <div className="layer" />
+        <video autoPlay muted loop className="videoHero">
+          <source src={BG} type="video/mp4" />
+        </video>
+      </div>
       <Container>
         <div className="hero-container">
           <div className="captionWrapper">
@@ -54,11 +73,6 @@ const Header = () => {
                 </span>
               </p>
             </Fade>
-          </div>
-          <div className="videoWrapper">
-            <video autoPlay muted loop className="videoHero">
-              <source src={BG} type="video/mp4" />
-            </video>
           </div>
         </div>
       </Container>

@@ -52,7 +52,7 @@ const Chart = () => {
         <div className="project-wrapper">
           <Title title="Tokenomics" />
           <div className="row justify-content-center">
-            <div className="col-lg-5 mb-5">
+            <div className="col-lg-5 col-10">
               <Doughnut data={data} />;
             </div>
           </div>

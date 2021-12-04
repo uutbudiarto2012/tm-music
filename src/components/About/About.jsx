@@ -1,13 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
-import { Container, Row, Col } from 'react-bootstrap';
-import Title from '../Title/Title';
-import AboutImg from '../Image/AboutImg';
+import AboutImage from '../../assets/profile.png';
 import PortfolioContext from '../../context/context';
+import Title from '../Title/Title';
 
 const About = () => {
   const { about } = useContext(PortfolioContext);
-  const { img, paragraphOne, paragraphTwo, paragraphThree, resume } = about;
+  const { paragraphOne, paragraphTwo, paragraphThree } = about;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -23,32 +23,48 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="">
+    <section id="about" className="pt-5">
+      <div className="circle" />
       <Container>
-        <Title title="About Me" />
+        <Title title="About Us" />
         <Row className="about-wrapper">
           <Col md={6} sm={12}>
             <Fade bottom duration={1000} delay={600} distance="30px">
               <div className="about-wrapper__image">
-                <AboutImg alt="profile picture" filename={img} />
+                <img
+                  src={AboutImage}
+                  alt="profile"
+                  className="img-fluid"
+                  style={{ opacity: 0.3 }}
+                />
               </div>
             </Fade>
           </Col>
           <Col md={6} sm={12}>
             <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1000} distance="30px">
               <div className="about-wrapper__info">
+                <p className="text-left">
+                  <b>What is STADIUM REBORN ?</b>
+                </p>
                 <p className="about-wrapper__info-text">
                   {paragraphOne ||
-                    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendu distinctioaperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate architecto itaque molestiae.'}
+                    'Stadium Reborn is blockchain’s real-life application and powered rave party event in Indonesia. Stadium Reborn’s core values are supporting Indonesian Disk-Jockey and at the same time initiate rave party event to increase tourism visits to various destinations in Indonesia'}
+                </p>
+                <p className="text-left">
+                  <b>Vision</b>
                 </p>
                 <p className="about-wrapper__info-text">
                   {paragraphTwo ||
-                    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendu distinctioaperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate architecto itaque molestiae.'}
+                    'Our goal is to encourage more people into this world of crypto currencies by creating event that people can interact and participate with the use of blockchain technology.'}
+                </p>
+                <p className="text-left">
+                  <b>Mission</b>
                 </p>
                 <p className="about-wrapper__info-text">
-                  {paragraphThree || 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'}
+                  {paragraphThree ||
+                    'We really appreciate the disc jockey profession, especially the talents and legends from Indonesia. Our main mission is to make local Disc Jockeys and Indonesian tourism more recognized around the world.'}
                 </p>
-                {resume && (
+                {/* {resume && (
                   <span className="d-flex mt-3">
                     <a
                       target="_blank"
@@ -59,7 +75,7 @@ const About = () => {
                       Resume
                     </a>
                   </span>
-                )}
+                )} */}
               </div>
             </Fade>
           </Col>

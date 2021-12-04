@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import BG from '../../assets/3.mp4';
+import MyName from '../../assets/name.png';
 import PortfolioContext from '../../context/context';
 
 const Header = () => {
   const { hero } = useContext(PortfolioContext);
-  const { title, name, subtitle } = hero;
+  const { title, subtitle } = hero;
 
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -47,10 +48,9 @@ const Header = () => {
           <div className="captionWrapper">
             <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
               <h1 className="hero-title">
-                {title || 'Hi, my name is'}{' '}
-                <span className="text-color-main">{name || 'Your Name'}</span>
+                {title || 'Hi, my name is'} <img src={MyName} alt="Bobby Suryadi" />
                 <br />
-                {subtitle || "I'm the Unknown Developer."}
+                {subtitle || "And I'm into Blockchain"}
               </h1>
             </Fade>
             <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={1000} distance="30px">
